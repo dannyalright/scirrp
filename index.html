@@ -1,24 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="thanks.js" async></script>
     <title>scirrp</title>
   </head>
   <body>
-    <!-- Formspree form -->
-    <!-- https://formspree.io/docs -->
-    <form
-      action="https://formspree.io/white.daniel.james+spam@gmail.com"
-      method="POST"
-    >
-      <input type="email" name="_replyto" placeholder="your@email.com" />
-      <input
-        type="text"
-        name="name"
-        placeholder="Enter some text"
-        value="Content here!"
-      />
-      <input type="submit" value="Send email" />
-      <input type="hidden" name="_next" value="thanks.html" />
-    </form>
+    <section>
+      <h1>Hey</h1>
+      <p>
+        Info about the
+        <a
+          href="https://www.giving.uts.edu.au/projects-and-causes/spinal-cord-injury-recovery-research-program/vision"
+          target="_blank"
+          >thing</a
+        >.
+      </p>
+      <p>
+        This is super exciting and could change the lives of so many people
+        living with a spinal cord injury and transform the lives of their
+        families. Thanks heaps everyone!
+      </p>
+    </section>
+    <section>
+      <h2>What you need to do</h2>
+
+      <form
+        enctype="text/plain"
+        method="post"
+        action="mailto:advancement@uts.edu.au?subject=Registering%20Interest%20in%20CNRM%20spinal%20cord%20injury%20and%20neurological%20disease%20programs"
+        onsubmit="showThanks();"
+      >
+        <label for="name">Your name</label>
+        <input type="text" name="name" placeholder="Name" />
+        <!-- Phone -->
+        <label for="phoneno">Your phone</label>
+        <input type="tel" name="phoneno" placeholder="0412345678" />
+        <!-- Text -->
+        <label for="bodytext">Email contents</label>
+
+        <input
+          type="text"
+          name="bodytext"
+          required
+          placeholder="The body of the email"
+          value="a few words about the urgency, need and excitement for the program. Insert form details in here, too."
+        />
+
+        <!-- Submit button -->
+        <input type="submit" value="Send this email" />
+        <!--
+          <a
+            href="mailto:advancement@uts.edu.au?cc=someoneelse@theirsite.com&subject=Registering%20Interest%20in%20CNRM%20spinal%20cord%20injury%20and%20neurological%20disease%20programs&body=Body%20goes here"
+            >Send manual email</a
+          >
+        -->
+        <!--
+          <p>
+            Don't have an email app setup on this device? Feel free to
+            copy-and-paste the above text into your email site of choice.
+          </p>
+        -->
+      </form>
+
+      <div id="thanks-area">Thanks! You're great.</div>
+    </section>
   </body>
 </html>
