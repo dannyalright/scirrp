@@ -4,33 +4,23 @@
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="thanks.js" async></script>
+    <script src="preapreEmail.js" async></script>
     <title>Insert title here</title>
   </head>
   <body>
     <section>
-      <h1>Help us out</h1>
+      <h1>We need your help</h1>
       <p>
-        Info about the
+        The UTS
         <a
           href="https://www.giving.uts.edu.au/projects-and-causes/spinal-cord-injury-recovery-research-program/vision"
           target="_blank"
-          >thing</a
-        >.
+          >Spinal Cord Injury Recovery Research Program</a
+        >
+        is developing ground-breaking solutions to alleviate the suffering of
+        the thousands of people living with spinal cord injury, and other
+        neurodegenerative disorders such as Parkinson&#8217;s disease.
       </p>
-      <p>
-        UTS’ Spinal Cord Injury Recovery Research Program is developing
-        ground-breaking solutions to alleviate the suffering of the thousands of
-        people living with spinal cord injury, and other neurodegenerative
-        disorders such as Parkinson’s disease.
-      </p>
-      <iframe
-        width="100%"
-        height="56.25%"
-        src="https://www.youtube-nocookie.com/embed/CMPqf2lEV2E"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
       <p>
         This is super exciting and could change the lives of so many people
         living with a spinal cord injury and transform the lives of their
@@ -38,38 +28,75 @@
       </p>
     </section>
     <section>
-      <form
-        enctype="text/plain"
-        method="post"
-        action="mailto:advancement@uts.edu.au?subject=Registering%20Interest%20in%20CNRM%20spinal%20cord%20injury%20and%20neurological%20disease%20programs"
-        onsubmit="showThanks();"
-      >
-        <label for="name">Your name</label>
-        <input type="text" name="name" placeholder="Name" />
-        <!-- Phone -->
-        <label for="phoneno">Your phone</label>
-        <input type="tel" name="phoneno" placeholder="0412345678" />
-        <!-- Text -->
-        <label for="bodytext">Email contents</label>
+      <h2>Step 1</h2>
+      <p class="large">
+        Send an email to UTS expressing your interest in the program. This helps
+        the research program's case for future grants from the university.
+      </p>
 
-        <input
-          type="text"
-          name="bodytext"
-          required
-          placeholder="The body of the email"
-          value="a few words about the urgency, need and excitement for the program."
-        />
+      <p>
+        We've added some indicative text. Feel free to use it as-is, modify, or
+        replace. Just be sure to mention the program by name as well as your
+        excitment about the urgency and need for it.
+      </p>
 
-        <!-- Submit button -->
-        <input type="submit" value="Send this email" />
-      </form>
+      <textarea
+        name="bodytext"
+        id="bodytext"
+        minlength="3"
+        placeholder="Insert placeholder text"
+      >A boilerplate body of text to send to UTS that expresses excitment for the program and information about the urgency and need for it.</textarea>
 
       <a
-        href="mailto:advancement@uts.edu.au?cc=someoneelse@theirsite.com&subject=Registering%20Interest%20in%20CNRM%20spinal%20cord%20injury%20and%20neurological%20disease%20programs&body=Body%20goes here"
-        onclick="showThanks();"
-        >Send better email</a
+        class="button"
+        id="emailbutton"
+        role="button"
+        href="mailto:advancement@uts.edu.au"
+        onclick="prepareEmail();"
+        >Send email</a
       >
+      <p class="small">
+        Don't have an email account setup on your device or computer? Please
+        copy and paste the above text (or write your own) and send it to
+        <i>advancement@uts.edu.au</i> with the subject line
+        <i
+          >"Registering Interest in CNRM spinal cord injury and neurological
+          disease programs"</i
+        >.
+      </p>
+      <hr />
+      <h2>Step 2</h2>
+      <p class="large">
+        Consider donating to the to immediately fund crucial research work. Any
+        amount is appreciated.
+      </p>
+      <a
+        class="button"
+        id="donatebutton"
+        role="button"
+        href="https://www.giving.uts.edu.au/donate"
+        target="_blank"
+        >Donate</a
+      >
+      <p class="small">
+        Please be sure to select the
+        <i>Science: Research - Spinal Cord Injury</i> designation when filling
+        out the donation information.
+      </p>
+
       <div id="thanks-area">Thanks! You're great.</div>
     </section>
   </body>
+  <script>
+    const emailButton = document.getElementById("emailbutton");
+
+    function prepareEmail() {
+      const textAreaValue = document.getElementById("bodytext").value;
+      const body = `body=${textAreaValue}`;
+      const subject = `subject=Registering%20Interest%20in%20CNRM%20spinal%20cord%20injury%20and%20neurological%20disease%20programs`;
+      const receiver = `advancement@uts.edu.au`;
+
+      emailButton.href = `mailto:danny@dannywhite.site?${subject}&${body}`;
+    }
+  </script>
 </html>
