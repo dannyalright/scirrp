@@ -4,9 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="thanks.js" async></script>
-    <script src="preapreEmail.js" async></script>
-    <title>Insert title here</title>
+    <title>Spinal Cord Injury Recovery Research Program</title>
   </head>
   <body>
     <section>
@@ -23,9 +21,9 @@
         neurodegenerative disorders such as Parkinson&#8217;s disease.
       </p>
       <p>
-        This is super exciting and could change the lives of so many people
-        living with a spinal cord injury and transform the lives of their
-        families. Thanks heaps everyone!
+        This could dramatically change the lives of people living with a spinal
+        cord injury&mdash;transforming their lives and those of their families.
+        Thank you for your support!
       </p>
     </section>
     <section>
@@ -44,9 +42,18 @@
       <textarea
         name="bodytext"
         id="bodytext"
-        minlength="3"
-        placeholder="Insert placeholder text"
-      >A boilerplate body of text to send to UTS that expresses excitment for the program and information about the urgency and need for it.</textarea>
+        placeholder="To whom it may concern..."
+      >
+To whom it may concern,
+
+I am writing to express my interest in the UTS research into spinal cord injury recovery. It goes without saying this research could drastically improve the lives of people currently living with spinal cord injury and for those in the future that will also be affected. Spinal cord injury can affect anyone and currently there are no curative treatment options available.
+
+Another great purpose I have seen this type of research perform is giving people hope. The necessary adjustment of life after a spinal cord injury is an enormous challenge to all involved. This program could lead to life-changing treatment options for spinal injuries. The hope for improvement carries over to all parts of life; whether it be work, rehab, or relationships.
+
+This is why I have a personal interest in this research and see the urgent need to cure spinal cord injury. 
+
+Thank you.</textarea
+      >
 
       <a
         class="button"
@@ -57,9 +64,12 @@
         >Send email</a
       >
       <p class="small">
-        Don't have an email account setup on your device or computer? Please
-        copy and paste the above text (or write your own) and send it to
-        <i>advancement@uts.edu.au</i> with the subject line
+        Prefer to send this manually? Please copy and paste the above text (or
+        write your own) and send it to
+        <i
+          ><a href="mailto:advancement@uts.edu.au">advancement@uts.edu.au</a></i
+        >
+        with the subject line
         <i
           >"Registering Interest in CNRM spinal cord injury and neurological
           disease programs"</i
@@ -71,6 +81,11 @@
         Consider donating to the to immediately fund crucial research work. Any
         amount is appreciated.
       </p>
+      <p>
+        Please be sure to select the
+        <i>Science: Research - Spinal Cord Injury</i> designation when filling
+        out the donation form.
+      </p>
       <a
         class="button"
         id="donatebutton"
@@ -79,11 +94,6 @@
         target="_blank"
         >Donate</a
       >
-      <p class="small">
-        Please be sure to select the
-        <i>Science: Research - Spinal Cord Injury</i> designation when filling
-        out the donation information.
-      </p>
 
       <div id="thanks-area">Thanks! You're great.</div>
     </section>
@@ -93,11 +103,10 @@
 
     function prepareEmail() {
       const textAreaValue = document.getElementById("bodytext").value;
-      const body = `body=${textAreaValue}`;
+      const body = `body=${encodeURIComponent(textAreaValue)}`;
       const subject = `subject=Registering%20Interest%20in%20CNRM%20spinal%20cord%20injury%20and%20neurological%20disease%20programs`;
-      const receiver = `advancement@uts.edu.au`;
-
-      emailButton.href = `mailto:danny@dannywhite.site?${subject}&${body}`;
+      const recipient = `advancement@uts.edu.au`;
+      emailButton.href = `mailto:${recipient}?${subject}&${body}`;
     }
   </script>
 </html>
