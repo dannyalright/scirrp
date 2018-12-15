@@ -7,7 +7,7 @@
     <title>Spinal Cord Injury Recovery Research Program</title>
   </head>
   <body>
-    <section>
+    <section id="info-section">
       <h1>We need your help</h1>
       <p>
         The UTS
@@ -23,8 +23,19 @@
       <p>
         This could dramatically change the lives of people living with a spinal
         cord injury&mdash;transforming their lives and those of their families.
-        Thank you for your support!
       </p>
+      <p>Thank you for your support!</p>
+      <div class="intrinsic-container">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/CMPqf2lEV2E"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div id="fadeout">
+        <button onclick="removeClipping()">Read more &darr;</button>
+      </div>
     </section>
     <section>
       <h2>Step 1</h2>
@@ -107,6 +118,16 @@ Thank you.</textarea
       const subject = `subject=Registering%20Interest%20in%20CNRM%20spinal%20cord%20injury%20and%20neurological%20disease%20programs`;
       const recipient = `advancement@uts.edu.au`;
       emailButton.href = `mailto:${recipient}?${subject}&${body}`;
+    }
+
+    function removeClipping() {
+      const infoSection = document.getElementById("info-section");
+      infoSection.style.maxHeight = "none";
+      const fadeoutArea = document.getElementById("fadeout");
+      // .setAttribute("max-height", "none");
+      fadeoutArea.style.display = "none";
+      // document.getElementById("fadeout").setAttribute("display", "none");
+      console.log("done");
     }
   </script>
 </html>

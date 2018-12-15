@@ -22,9 +22,41 @@ p.small {
   color: grey;
 }
 
-section {
-  padding: 1em;
+/* Informational clipping */
+section:first-of-type {
+  max-height: 18em;
+  overflow: hidden;
+  position: relative;
 }
+
+#fadeout {
+  width: 100%;
+  position: absolute;
+  top: 14em;
+  height: 4em;
+  /* you can use a premade png fade out or a dynamic gradient here*/
+  background: linear-gradient(rgba(255, 255, 255, 0), white 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#fadeout button {
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 9px;
+  padding: 0.3em 0.7em;
+  /* height: 1.5em; */
+  font-size: 10pt;
+  transition: background 0.15s ease-out;
+}
+
+#fadeout button:hover {
+  background: blue;
+  cursor: pointer;
+}
+
 /* Desktop */
 @media only screen and (min-width: 820px) {
   body {
@@ -34,6 +66,14 @@ section {
   section {
     width: 50%;
     padding: 3em;
+  }
+  /* No informational clipping */
+  section:first-of-type {
+    max-height: none;
+  }
+
+  #fadeout {
+    display: none;
   }
 }
 
@@ -78,6 +118,26 @@ textarea {
 
 p {
   line-height: 1.5;
+}
+
+.intrinsic-container {
+  position: relative;
+}
+/* 16x9 Aspect Ratio */
+.intrinsic-container:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 56.25%;
+}
+.intrinsic-container > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #thanks-area {
