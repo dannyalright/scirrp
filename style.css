@@ -1,24 +1,36 @@
 :root {
+  /* Colours */
   --color-background: #dbd0b2;
-  --color-small-hover: rgb(38, 38, 38);
-  --color-primary-action: blue;
-  --color-primary-action-hover: darkblue;
+  --color-background-alpha: #dbd0b200;
+  --color-sink: rgba(255, 255, 255, 0.56);
+  --color-text: #35322a;
+  --color-primary-action: #9c7300;
+  --color-primary-action-hover: #5a4200;
   --color-tertiary: grey;
-
+  /* Sizing */
   --padding-section-gutter: 3em;
+  --border-radius-small: 0.33em;
+  --border-radius-large: 1em;
 }
 * {
   box-sizing: border-box;
 }
 
 body {
-  /* background: var(--color-background); */
+  background: var(--color-background);
   margin: 2vh 8vw;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+}
+h1,
+h2,
+h6,
+p,
+a {
+  color: var(--color-text);
 }
 h1 {
   font-size: 32pt;
@@ -58,7 +70,10 @@ section:first-of-type {
   position: absolute;
   top: 35vh;
   height: 15vh;
-  background: linear-gradient(rgba(255, 255, 255, 0), white 80%);
+  background: linear-gradient(
+    var(--color-background-alpha),
+    var(--color-background) 80%
+  );
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -66,7 +81,7 @@ section:first-of-type {
 
 #fadeout button {
   border: none;
-  background: var(--color-small-hover);
+  background: var(--color-text);
   color: white;
   border-radius: 9em;
   padding: 0.7em 1em;
@@ -107,11 +122,18 @@ footer {
   }
 }
 
+/* .pop {
+  background: white;
+} */
+
 textarea {
+  background: var(--color-sink);
   min-width: 100%;
   max-width: 100%;
   padding: 0.75em;
-  border: 1px solid lightgrey;
+  /* border: 1px solid lightgrey; */
+  border: 0;
+  border-radius: var(--border-radius-small);
   min-height: 16em;
   max-height: 90vh;
 }
@@ -136,7 +158,7 @@ a.button:hover {
 
 a.button,
 textarea {
-  border-radius: 0.2em;
+  border-radius: var(--border-radius-small);
 }
 
 p,
@@ -147,7 +169,7 @@ textarea {
 /* Video */
 .intrinsic-container {
   position: relative;
-  background: lightgray;
+  background: var(--color-sink);
 }
 /* 16x9 Aspect Ratio */
 .intrinsic-container:before {
