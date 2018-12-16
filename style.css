@@ -1,16 +1,18 @@
 :root {
-  /* Colours */
+  /* Colour */
   --color-background: #dbd0b2;
   --color-background-alpha: #dbd0b200;
-  --color-sink: rgba(255, 255, 255, 0.56);
-  --color-text: #35322a;
+  --color-sink: rgba(255, 255, 255, 0.3);
+  --color-text-primary: #35322a;
+  --color-text-secondary: #35322ac0;
+  --color-text-tertiary: #35322a8a;
   --color-primary-action: #9c7300;
   --color-primary-action-hover: #5a4200;
-  --color-tertiary: grey;
   /* Sizing */
-  --padding-section-gutter: 3em;
-  --border-radius-small: 0.33em;
-  --border-radius-large: 1em;
+  --padding-small: 3em;
+  --padding-large: 5vmax;
+  --padding-xlarge: 7vmax;
+  --border-radius-small: 0.2em;
 }
 * {
   box-sizing: border-box;
@@ -18,51 +20,79 @@
 
 body {
   background: var(--color-background);
-  margin: 2vh 8vw;
+  margin: 0 auto;
+  padding: 2vh 8vw;
+  max-width: 800px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
+
+/* Type */
 h1,
 h2,
-h6,
 p,
 a {
-  color: var(--color-text);
+  transition: color 0.15s ease-out;
 }
+
+h1,
+h2 {
+  color: var(--color-text-secondary);
+}
+
+p,
+a {
+  color: var(--color-text-primary);
+}
+
 h1 {
-  font-size: 32pt;
-  margin: 14pt 0 0;
+  margin: 18pt 0;
+  font-size: 42pt;
+  font-weight: 900;
+  line-height: 0.95;
 }
+
 h2 {
   margin: 0.4em 0;
   font-size: 21pt;
+  font-weight: 800;
+  line-height: 1.1;
 }
+
 h6 {
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 2.5pt;
   margin: 0;
-  color: lightgrey;
+  color: var(--color-text-tertiary);
+}
+
+p a {
+  color: var(--color-text-secondary);
+}
+p a:hover {
+  color: var(--color-text-tertiary);
 }
 
 p.small {
   font-size: 9pt;
-  color: grey;
+  color: var(--color-text-tertiary);
 }
 p.small a {
-  color: grey;
-  transition: color 0.15s ease-out;
+  color: var(--color-text-tertiary);
 }
 p.small a:hover {
-  color: var(--color-small-hover);
+  color: var(--color-text-secondary);
 }
+
 /* Informational clipping */
 section:first-of-type {
   max-height: 50vh;
   overflow: hidden;
   position: relative;
+  margin-top: var(--padding-large);
 }
 
 #fadeout {
@@ -81,7 +111,7 @@ section:first-of-type {
 
 #fadeout button {
   border: none;
-  background: var(--color-text);
+  background: var(--color-text-primary);
   color: white;
   border-radius: 9em;
   padding: 0.7em 1em;
@@ -98,43 +128,21 @@ footer {
   margin: 3em 0;
 }
 
-/* Desktop */
-@media only screen and (min-width: 920px) {
-  body {
-    flex-direction: row;
-    padding: 1em;
-  }
-  section {
-    width: 50%;
-    padding: var(--padding-section-gutter);
-  }
-  footer {
-    padding-left: var(--padding-section-gutter);
-    margin: 0;
-  }
-  /* No informational clipping */
-  section:first-of-type {
-    max-height: none;
-  }
-
-  #fadeout {
-    display: none;
-  }
+/* Visual padding */
+section:last-of-type,
+h6:not(:first-of-type) {
+  margin-top: var(--padding-small);
 }
-
-/* .pop {
-  background: white;
-} */
 
 textarea {
   background: var(--color-sink);
+  color: var(--color-text-secondary);
   min-width: 100%;
   max-width: 100%;
-  padding: 0.75em;
-  /* border: 1px solid lightgrey; */
+  padding: 2em 6vh;
   border: 0;
   border-radius: var(--border-radius-small);
-  min-height: 16em;
+  min-height: 18em;
   max-height: 90vh;
 }
 
@@ -147,7 +155,6 @@ a.button {
   color: white;
   text-decoration: none;
   transition: background 0.15s ease-out;
-
   display: block;
   text-align: center;
 }
@@ -169,7 +176,7 @@ textarea {
 /* Video */
 .intrinsic-container {
   position: relative;
-  background: var(--color-sink);
+  background: var(--color-text-secondary);
 }
 /* 16x9 Aspect Ratio */
 .intrinsic-container:before {
@@ -186,4 +193,39 @@ textarea {
   bottom: 0;
   width: 100%;
   height: 100%;
+}
+
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+  body {
+    max-width: none;
+    flex-direction: row;
+    padding: 2vmax 3vmax;
+  }
+
+  section {
+    padding: var(--padding-large) var(--padding-xlarge);
+  }
+
+  footer {
+    padding-left: var(--padding-large);
+    margin: 0;
+  }
+
+  /* No informational clipping */
+  #fadeout {
+    display: none;
+  }
+
+  section:first-of-type {
+    max-height: none;
+    margin-top: 0;
+    width: 40%;
+  }
+
+  /* No margin-top */
+  section:last-of-type {
+    margin-top: 0;
+    width: 60%;
+  }
 }
