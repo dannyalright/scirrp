@@ -1,17 +1,19 @@
 :root {
   /* Colour */
-  --color-background: #dbd0b2;
-  --color-background-alpha: #dbd0b200;
-  --color-sink: rgba(255, 255, 255, 0.3);
-  --color-text-primary: #35322a;
-  --color-text-secondary: #35322ac0;
-  --color-text-tertiary: #35322a8a;
-  --color-primary-action: #9c7300;
-  --color-primary-action-hover: #5a4200;
+  --color-background: rgb(236, 228, 207);
+  --color-background-alpha: rgba(226, 214, 181, 0);
+  --color-sink: rgba(21, 20, 17, 0.05);
+  --color-action: rgba(252, 251, 248, 0.9);
+  --color-action-hover: rgba(255, 255, 255, 1);
+  --color-text-primary: rgba(21, 20, 17, 0.8);
+  --color-text-secondary: rgba(21, 20, 17, 0.6);
+  --color-text-tertiary: rgba(21, 20, 17, 0.4);
   /* Sizing */
+  --padding-xsmall: 1em;
   --padding-small: 3em;
-  --padding-large: 5vmax;
-  --padding-xlarge: 7vmax;
+  --padding-medium: 5vmax;
+  --padding-large: 7vmax;
+  --padding-xlarge: 9vmax;
   --border-radius-small: 0.2em;
 }
 * {
@@ -21,7 +23,7 @@
 body {
   background: var(--color-background);
   margin: 0 auto;
-  padding: 2vh 8vw;
+  padding: 2vh 8vw 0;
   max-width: 800px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -92,12 +94,12 @@ section:first-of-type {
   max-height: 50vh;
   overflow: hidden;
   position: relative;
-  margin-top: var(--padding-large);
 }
 
 #fadeout {
   width: 100%;
   position: absolute;
+  /* top = section max-height minus fadeout height */
   top: 35vh;
   height: 15vh;
   background: linear-gradient(
@@ -116,22 +118,23 @@ section:first-of-type {
   border-radius: 9em;
   padding: 0.7em 1em;
   font-size: 10pt;
+  font-weight: 600;
   transition: background 0.15s ease-out;
 }
 
 #fadeout button:hover {
-  background: var(--color-primary-action);
+  background: var(--color-text-secondary);
   cursor: pointer;
 }
 
 footer {
-  margin: 3em 0;
+  margin: var(--padding-small) 0;
 }
 
 /* Visual padding */
 section:last-of-type,
 h6:not(:first-of-type) {
-  margin-top: var(--padding-small);
+  margin-top: var(--padding-xlarge);
 }
 
 textarea {
@@ -151,16 +154,21 @@ a.button {
   padding: 1em 2em;
   width: 100%;
   border: none;
-  background: var(--color-primary-action);
-  color: white;
+  /* background: var(--color-primary-action); */
+  /* color: white; */
+  color: var(--color-text-primary);
+  background: var(--color-action);
   text-decoration: none;
-  transition: background 0.15s ease-out;
   display: block;
   text-align: center;
+  font-size: 14pt;
+  font-weight: 700;
+  transition: background 0.15s ease-out;
 }
+
 a.button:focus,
 a.button:hover {
-  background: var(--color-primary-action-hover);
+  background: var(--color-action-hover);
 }
 
 a.button,
@@ -200,16 +208,15 @@ textarea {
   body {
     max-width: none;
     flex-direction: row;
-    padding: 2vmax 3vmax;
+    padding: 0 3vmax;
   }
 
   section {
-    padding: var(--padding-large) var(--padding-xlarge);
+    padding: var(--padding-medium) var(--padding-large);
   }
 
   footer {
     padding-left: var(--padding-large);
-    margin: 0;
   }
 
   /* No informational clipping */
@@ -223,9 +230,16 @@ textarea {
     width: 40%;
   }
 
-  /* No margin-top */
   section:last-of-type {
-    margin-top: 0;
     width: 60%;
+  }
+
+  /* Visual padding */
+  section:last-of-type {
+    margin-top: var(--padding-xsmall);
+  }
+
+  h6:not(:first-of-type) {
+    margin-top: var(--padding-medium);
   }
 }

@@ -60,7 +60,7 @@
       </div>
     </section>
     <section>
-      <h6>Firstly</h6>
+      <h6>First off</h6>
       <h2>
         Send an email to UTS expressing your interest in the research program.
       </h2>
@@ -91,10 +91,9 @@ Thank you.</textarea
         id="emailbutton"
         role="button"
         href="mailto:advancement@uts.edu.au"
-        onclick="prepareEmail();"
+        onclick="prepareEmail();sayThanks()"
         >Send email</a
       >
-      <!-- </div> -->
       <p class="small">
         Prefer to send this manually? Copy the above text (or write your own)
         and send it to
@@ -105,7 +104,7 @@ Thank you.</textarea
           disease programs"</i
         >.
       </p>
-      <br />
+
       <h6>If you can</h6>
       <h2>Consider donating to immediately fund crucial research work.</h2>
       <p>
@@ -133,6 +132,7 @@ Thank you.</textarea
   </body>
   <script>
     const emailButton = document.getElementById("emailbutton");
+    const donateButton = document.getElementById("donatebutton");
 
     function prepareEmail() {
       const textAreaValue = document.getElementById("bodytext").value;
@@ -146,10 +146,7 @@ Thank you.</textarea
       const infoSection = document.getElementById("info-section");
       infoSection.style.maxHeight = "none";
       const fadeoutArea = document.getElementById("fadeout");
-      // .setAttribute("max-height", "none");
       fadeoutArea.style.display = "none";
-      // document.getElementById("fadeout").setAttribute("display", "none");
-      console.log("done");
     }
   </script>
 </html>
